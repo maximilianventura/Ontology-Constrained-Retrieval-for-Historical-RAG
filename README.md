@@ -3,8 +3,6 @@ Experimental implementation of Ontology-Constrained Retrieval for historical RAG
 
 This repository contains the experimental code used in the paper:
 
-**Ontology-Constrained Retrieval for Historical RAG: Reducing Noise Before Generation**
-
 ## Overview
 
 The project compares three retrieval configurations:
