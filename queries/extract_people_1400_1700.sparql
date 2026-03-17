@@ -14,5 +14,5 @@ SELECT ?person ?birth ?death WHERE {
   FILTER(?dPrec >= 11)
 }
 LIMIT 20000
-OFFSET 0
+
 
