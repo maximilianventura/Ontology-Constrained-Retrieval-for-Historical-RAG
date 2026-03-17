@@ -15,4 +15,6 @@ SELECT ?person ?birth ?death WHERE {
 }
 LIMIT 20000
 
+The query was executed multiple times using OFFSET pagination
+
 
