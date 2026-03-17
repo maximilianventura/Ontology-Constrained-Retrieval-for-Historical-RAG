@@ -21,16 +21,13 @@ core_vector_graph.py
 Core retrieval logic.
 
 run_vector_graph.py  
-Script used to run the experimental configurations.
+Script used to run the experimental configurations and reproduce the experiments.
 
-queries/  
-SPARQL queries used to extract the Wikidata subset.
+requirements.txt  
+List of Python dependencies required to run the experiments.
 
-docs/  
-Figures used in the paper (pipeline diagrams).
-
-examples/  
-Example natural language queries used in the experiments.
+LICENSE  
+Open source license for the code.
 
 ## Experimental Setup
 
@@ -39,10 +36,10 @@ The experiments operate on a dataset derived from Wikidata consisting of approxi
 Each statement is represented as a structured record containing:
 
 - source entity (SRC)
-- relation (PID)
+- relation (PID – Wikidata Property ID)
 - destination entity (DST)
 - optional temporal metadata
-- natural language linearization
+- natural language linearization of the fact
 
 The statements are embedded using the model:
 
@@ -52,16 +49,59 @@ and indexed in the **Qdrant vector database**.
 
 ## Retrieval Configurations
 
-Two configurations are evaluated:
+Two configurations are evaluated.
 
 **SVR – Semantic Vector Retrieval**
 
-Standard vector similarity search.
+Standard vector similarity search based purely on semantic proximity between query and statement embeddings.
 
 **OCR – Ontology-Constrained Retrieval**
 
-Vector retrieval combined with structural constraints derived from Wikidata relations and temporal metadata.
+Vector retrieval combined with structural constraints derived from Wikidata relations and temporal metadata.  
+These constraints restrict the search space and filter candidates that are structurally incompatible with the query.
 
 ## Example Usage
 
-Semantic baseline:
+Example semantic retrieval:
+
+python run_vector_graph.py --mode svr --q "Chi è nato a Milano nel 1489?"
+
+Example ontology-constrained retrieval:
+
+python run_vector_graph.py --mode ocr --q "Chi è nato a Milano nel 1489?"
+
+## Requirements
+
+Python 3.10+
+
+Install dependencies with:
+
+pip install -r requirements.txt
+
+Main dependencies include:
+
+- qdrant-client
+- sentence-transformers
+- pandas
+- numpy
+
+## Dataset Reconstruction
+
+The dataset is **not distributed directly** because it is derived from Wikidata.
+
+To reconstruct the dataset:
+
+1. Extract entities and relations from Wikidata using SPARQL queries.
+2. Convert statements into flat factual records containing SRC, PID, DST and temporal metadata.
+3. Generate text linearizations of the facts.
+4. Compute embeddings using SentenceTransformers.
+5. Index the embeddings in Qdrant.
+
+This process produces the experimental corpus of approximately **191,000 factual statements** used in the paper.
+
+## Scope
+
+This repository supports a **methodological experiment** on retrieval control in historical fact retrieval.
+
+The goal is to study how structural constraints can reduce semantic noise before generation.  
+It is not intended to provide a production-ready search system.
