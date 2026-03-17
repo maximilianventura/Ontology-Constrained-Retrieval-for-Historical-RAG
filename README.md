@@ -26,7 +26,7 @@ Unlike document-based RAG systems, this work operates on **atomic factual statem
 ├── LICENSE                   # Open-source license
 └── queries/                  
     └── extract_people_1400_1700.sparql  # SPARQL query for initial data extraction
-
+```
 
 
 
