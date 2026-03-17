@@ -1,3 +1,8 @@
+# This query extracts human entities (Q5) with birth dates between 1400 and 1700
+# and with birth and death dates expressed with at least yearly precision.
+# The query was executed multiple times using OFFSET pagination in order to
+# retrieve the full result set.
+
 SELECT ?person ?birth ?death WHERE {
   ?person wdt:P31 wd:Q5 .
   ?person p:P569 ?bSt .
@@ -14,7 +19,3 @@ SELECT ?person ?birth ?death WHERE {
   FILTER(?dPrec >= 11)
 }
 LIMIT 20000
-
-The query was executed multiple times using OFFSET pagination
-
-
