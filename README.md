@@ -72,6 +72,7 @@ In the codebase the two configurations correspond to:
 Semantic vector retrieval (SVR):
 
 python run_vector_graph.py --mode pure --q "Who has occupation historian?"
+python run_vector_graph.py --mode pure --q "Who has occupation historian?"
 
 Knowledge-Graph Constrained Retrieval (KGC:
 
