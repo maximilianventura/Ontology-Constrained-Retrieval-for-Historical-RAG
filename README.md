@@ -1,9 +1,9 @@
 
-# Ontology-Constrained Retrieval for Historical RAG
+# Knowledge-Graph Constrained Retrieval
 
 Code accompanying the paper:
 
-**Ontology-Constrained Retrieval for Historical RAG**
+**Reducing Semantic Noise in Historical RAG through Knowledge-Graph Constraints**
 
 ## Overview
 
