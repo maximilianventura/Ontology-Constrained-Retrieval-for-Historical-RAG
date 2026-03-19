@@ -16,6 +16,8 @@ This repository contains the experimental code used to compare two retrieval arc
 
 The goal of the experiment is to evaluate how structural constraints derived from Wikidata relations can reduce semantic noise during vector retrieval.
 
+This repository focuses on the retrieval component of a potential RAG pipeline.
+
 Unlike document-based RAG systems, this work operates on **atomic factual statements** derived from Wikidata and represented as vector embeddings.
 
 ## Repository Structure
@@ -71,10 +73,10 @@ In the codebase the two configurations correspond to:
 
 Semantic vector retrieval (SVR):
 
-python run_vector_graph.py --mode pure --q "Who has occupation historian?"
+
 python run_vector_graph.py --mode pure --q "Who has occupation historian?"
 
-Knowledge-Graph Constrained Retrieval (KGC:
+Knowledge-Graph Constrained Retrieval (KGC)
 
 python run_vector_graph.py --mode graph --q "Who studied in Padua and held the position of emperor?"
 
@@ -95,7 +97,7 @@ Main dependencies include:
 
 ## Dataset Reconstruction
 
-The dataset used in the experiments is derived from Wikidata and is **not distributed directly**.
+The dataset used in the experiments is derived from Wikidata and is **not distributed directly**; It can be reconstructed by executing the SPARQL query and following the preprocessing steps described in the paper.
 
 The initial extraction query is provided in the `queries/` directory.
 
