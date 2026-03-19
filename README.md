@@ -10,7 +10,7 @@ Code accompanying the paper:
 This repository contains the experimental code used to compare two retrieval architectures for historical fact retrieval:
 
 1. **Semantic Vector Retrieval (SVR)**
-2. **Ontology-Constrained Retrieval (OCR)**
+2. **Knowledge-Graph Constrained Retrieval (KGC)**
 
 The goal of the experiment is to evaluate how structural constraints derived from Wikidata relations can reduce semantic noise during vector retrieval.
 
@@ -54,7 +54,7 @@ Two configurations are evaluated.
 
 Standard vector similarity search based purely on semantic proximity between query and statement embeddings.
 
-### OCR – Ontology-Constrained Retrieval
+### KGC – Knowledge-Graph Constrained Retrieval
 
 Vector retrieval combined with structural constraints derived from Wikidata relations and temporal metadata.  
 These constraints restrict the search space and filter candidates that are structurally incompatible with the query.
